@@ -1,4 +1,4 @@
-<?php namespace App\Handlers\php;
+<?php 
 
 	include('ganon.php');
 	include('dbHandler.php');

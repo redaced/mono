@@ -1,4 +1,5 @@
 <?php 
 	include('php/dbHandler.php');
-	search();
+	$as = search();
+	print_r ($as['title']);
 ?>
