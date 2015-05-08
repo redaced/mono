@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Monitoring</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 </head>
 <body>
+
 	<?php
+
 		include('php/main.php');
-		$site = "http://news.gogo.mn";
-		foreach(getNews(getLinks($site,"a[href]"),"/r/",$site) as $url){
-			dataToDB($url,getNewsData($site.$url,"h1","div#ncbubuhome"));
+		include('php/sites_conf.php');
+		$data = gogo();
+		foreach(getNews(getLinks($data['site'],$data['news_link']),$data['news_url'],$data['site']) as $url){
+			dataToDB($url,getNewsData($data['site'].$url,$data['head_tag'],$data['content_tag']));
 		}
 
-		// dataToDB("/r/161734",getNewsData($site."/r/161734","h1","div#ncbubuhome"));
 	?>
+
 </body>
 </html>
