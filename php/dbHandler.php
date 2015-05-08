@@ -51,18 +51,19 @@ function search(){
 		mysql_query("SET NAMES utf8");
 		$sql = "SELECT * FROM `gogo` WHERE `title` LIKE '%".$name."%' OR `content` LIKE '%" . $name  ."%'";
 		mysql_select_db($GLOBALS['db_name']);
-		// $result = $conn->query($sql);
 		$data = mysql_query( $sql, $conn );
 		if(! $data )
 		{
 		  die('Could not enter data: ' . mysql_error());
 		}
 		$content = array();
+		$a = 0;
 		while($row = mysql_fetch_assoc($data))
 		{
-		    $content['title'] = $row['title'];
-		    $content['content'] = $row['content'];
-		    $content['url'] = $row['url'];
+		    $content[$a]['title'] = $row['title'];
+		    $content[$a]['content'] = $row['content'];
+		    $content[$a]['url'] = $row['url'];
+		    $a++;
 		} 
 		mysql_close($conn);
 		return $content;
