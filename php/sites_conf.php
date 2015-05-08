@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Handlers\php;
 	function gogo(){
 		$data = array();
 		$data['site'] = "http://news.gogo.mn";
