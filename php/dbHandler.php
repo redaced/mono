@@ -60,6 +60,7 @@ function search(){
 		$a = 0;
 		while($row = mysql_fetch_assoc($data))
 		{
+			$content[$a]['id'] = $row['id'];
 		    $content[$a]['title'] = $row['title'];
 		    $content[$a]['content'] = $row['content'];
 		    $content[$a]['url'] = $row['url'];
