@@ -41,6 +41,17 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link href="css/facebox.css" rel="stylesheet" type="text/css" >
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/facebox.js" ></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('a[rel*=facebox]').facebox({
+                loadingImage : 'images/loading.gif',
+                closeImage   : 'images/closelabel.png'
+            })
+        })
+    </script>
 
 </head>
 

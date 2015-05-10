@@ -57,7 +57,8 @@
 	if (isset($_POST['submit'])){
 
 		include('php/main.php');
-		  getLinks();
+		getLinks();
+        // date_viva();
 	}
 
 ?>

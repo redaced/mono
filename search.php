@@ -1,9 +1,7 @@
 <?php 
 	include 'layout/header.php';
 	include('php/dbHandler.php');
-    include('php/sites_conf.php');
     $as = search();
-    $data = viva_mn();	
 ?>
         <div id="page-wrapper">
             <div class="row">
@@ -27,14 +25,26 @@
                                     <thead>
                                         <tr>
                                             <th>Title</th>
-                                            <th>Content</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     	<?php foreach ($as as $a):?> 
                                         <tr class="odd gradeX">
-                                            <td><a href="<?php echo $data['site'].$a['url']; ?>" target="_blank"><p><?php echo $a['title']?></p></a></td>
-                                            <td><p></p></td>
+                                            <td><a rel="facebox" href="#info"><p onclick="popup"><?php echo $a['title']?></p></a></td>
+                                            
+                                            <div id="info" style="display:none;">
+                                                <p class="headeee"><?php echo $a['title']."<br>"?></p>
+                                                <p class="bodyyy">
+                                                <?php 
+                                                    mb_internal_encoding("UTF-8"); 
+                                                    $pos = strpos($a['content'], $a['name']);
+                                                    $asd = $a['content'];
+                                                    // echo gettype($asd);
+                                                    echo $asd;
+                                                ?>
+                                                </p>
+                                                <a href="<?php echo $a['site'].$a['url']; ?>" target="_blank"> Дэлгэрэнгүй</a> 
+                                            </div>
                                         </tr>
                                         <?php endforeach;?>
                                     </tbody>

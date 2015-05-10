@@ -71,7 +71,7 @@
 			}
 			
 			$data['url'] = $link;
-			$data['site'] = $d[$key]['dbname'];
+			$data['site'] = $d[$key]['site'];
 			dataToDB($data);
 		}
 	}
@@ -112,6 +112,20 @@
 
 		// $results=array_diff( $a, $b);
 		// print_r($results);
+	}
+
+	function date_gogo(){
+		$html = file_get_dom('http://news.gogo.mn/r/161902');
+		echo $html('span.hidden-sm', 0)->getPlainText();
+	}
+
+	function date_ikon(){
+		$html = file_get_dom('http://www.ikon.mn/n/gnz');
+		echo $html('div.time ', 0)->getAttribute('rawdate');
+	}
+	function date_viva(){
+		$html = file_get_dom('http://www.ikon.mn/n/gnz');
+		echo $html('div.time ', 0)->getAttribute('rawdate');
 	}
 
 ?>

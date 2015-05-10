@@ -68,6 +68,8 @@ function search(){
 		    $content[$a]['title'] = $row['title'];
 		    $content[$a]['content'] = $row['content'];
 		    $content[$a]['url'] = $row['url'];
+		    $content[$a]['site'] = $row['site'];
+		    $content[$a]['name'] = $name;
 		    $a++;
 		} 
 		mysql_close($conn);
