@@ -4,13 +4,17 @@ $db_name = "mono";
 $username = "root";
 $password = "pass";
 
-function insert_db($tbl_name,$url,$head,$content){
+function insert_db($data){
+	$url = $data['url'];
+	$head = $data['title'];
+	$content = $data['content'];
+	$site = $data['site'];
 	$conn = mysql_connect($GLOBALS['host'], $GLOBALS['username'], $GLOBALS['password']);
 	if (! $conn) {
 	    die('Could not connect: ' . mysql_error());
 	}
 	mysql_query("SET NAMES utf8");
-	$sql = "INSERT INTO ".$tbl_name." ( `url`, `title`, `content`) VALUES ('$url','$head','$content')";
+	$sql = "INSERT INTO news ( `url`, `title`, `content`,`site`) VALUES ('$url','$head','$content','$site')";
 	mysql_select_db($GLOBALS['db_name']);
 	$retval = mysql_query( $sql, $conn );
 	if(! $retval )
@@ -27,7 +31,7 @@ function select_db(){
 	    die('Could not connect: ' . mysql_error());
 	}
 	mysql_query("SET NAMES utf8");
-	$sql = "SELECT `url` FROM `gogo`";
+	$sql = "SELECT `url` FROM `news`";
 	mysql_select_db($GLOBALS['db_name']);
 	$data = mysql_query( $sql, $conn );
 	if(! $data )
@@ -49,7 +53,7 @@ function search(){
 		    die('Could not connect: ' . mysql_error());
 		}
 		mysql_query("SET NAMES utf8");
-		$sql = "SELECT * FROM `gogo` WHERE `title` LIKE '%".$name."%' OR `content` LIKE '%" . $name  ."%'";
+		$sql = "SELECT * FROM `news` WHERE `title` LIKE '%".$name."%' OR `content` LIKE '%" . $name  ."%'";
 		mysql_select_db($GLOBALS['db_name']);
 		$data = mysql_query( $sql, $conn );
 		if(! $data )

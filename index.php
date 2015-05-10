@@ -57,11 +57,7 @@
 	if (isset($_POST['submit'])){
 
 		include('php/main.php');
-		include('php/sites_conf.php');
-		$data = gogo();
-		foreach(getNews(getLinks($data['site'],$data['news_link']),$data['news_url'],$data['site']) as $url){
-			dataToDB($url,getNewsData($data['site'].$url,$data['head_tag'],$data['content_tag']));
-		}
+		  getLinks();
 	}
 
 ?>

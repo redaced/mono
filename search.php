@@ -3,7 +3,7 @@
 	include('php/dbHandler.php');
     include('php/sites_conf.php');
     $as = search();
-    $data = gogo();	
+    $data = viva_mn();	
 ?>
         <div id="page-wrapper">
             <div class="row">
