@@ -9,6 +9,7 @@
 		$data[0]['content_tag'] = "div#ncbubuhome";
 		$data[0]['banned'] = "";
 		$data[0]['dbname'] = "gogo";
+		$data[0]['category'] = "/i/";
 
 
 		$data[1]['site'] = "http://www.viva.mn";
@@ -17,6 +18,7 @@
 		$data[1]['content_tag'] = "article";
 		$data[1]['banned'] = "#comments";
 		$data[1]['dbname'] = "viva";
+		$data[1]['category'] = "/category/";
 
 		$data[2]['site'] = "http://www.ikon.mn";
 		$data[2]['news_url'] = "/n/";
@@ -24,6 +26,7 @@
 		$data[2]['content_tag'] = "div.icontent";
 		$data[2]['banned'] = "#ikcomments";
 		$data[2]['dbname'] = "ikon";
+		$data[2]['category'] = "/l/";
 		
 		return $data;
 	}

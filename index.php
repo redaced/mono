@@ -58,7 +58,7 @@
 
 		include('php/main.php');
 		getLinks();
-        // date_viva();
+        // getCategory();
 	}
 
 ?>

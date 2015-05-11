@@ -30,21 +30,7 @@
                                     <tbody>
                                     	<?php foreach ($as as $a):?> 
                                         <tr class="odd gradeX">
-                                            <td><a rel="facebox" href="#info"><p onclick="popup"><?php echo $a['title']?></p></a></td>
-                                            
-                                            <div id="info" style="display:none;">
-                                                <p class="headeee"><?php echo $a['title']."<br>"?></p>
-                                                <p class="bodyyy">
-                                                <?php 
-                                                    mb_internal_encoding("UTF-8"); 
-                                                    $pos = strpos($a['content'], $a['name']);
-                                                    $asd = $a['content'];
-                                                    // echo gettype($asd);
-                                                    echo $asd;
-                                                ?>
-                                                </p>
-                                                <a href="<?php echo $a['site'].$a['url']; ?>" target="_blank"> Дэлгэрэнгүй</a> 
-                                            </div>
+                                            <td><a rel="facebox" href="#info" id = "<?php echo $a['id']?>"><p><?php echo $a['title']?></p></a></td>
                                         </tr>
                                         <?php endforeach;?>
                                     </tbody>
@@ -65,7 +51,20 @@
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
-
+        <div id="info" style="display:none;">
+        
+            <p class="headeee"><?php echo $a['title']."<br>"?></p>
+            <p class="bodyyy">
+            <?php 
+                mb_internal_encoding("UTF-8"); 
+                $pos = strpos($a['content'], $a['name']);
+                $asd = $a['content'];
+                // echo gettype($asd);
+                echo $asd;
+            ?>
+            </p>
+            <a href="<?php echo $a['site'].$a['url']; ?>" target="_blank"> Дэлгэрэнгүй</a> 
+        </div>
     </div>
     <!-- /#wrapper -->
 

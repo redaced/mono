@@ -11,7 +11,8 @@
 				$getlink [] = $element->href;
 			}
 			// print_r($getlink); 
-			getNews ($getlink,$key);
+			// getNews ($getlink,$key);
+			getCategory($getlink, $key);
 		}
 	}
 	function getNews($links,$key){
@@ -36,6 +37,30 @@
 		RemoveHog($results,$key);  // adilhan link uudiig ustgah
 
 	}
+
+	function getCategory($links,$key){
+		// echo preg_match("/\bPHP\b/", "regex in PHP");
+		// echo preg_match("/*.PH.*/",     "PHA") ;
+		// $line = "Vi is the greatest word processor ever created!";
+		// // perform a case-Insensitive search for the word "Vi"
+		// if (preg_match('/\b(\w*Vi)\b/', $line, $match)) :
+		//   print "Match found!";
+		// endif;
+		$d = data();
+		$tag = $d[$key]['category'];
+		$main_link = $d[$key]['site'];
+		$permitted = array();
+		$a = 0;
+		foreach ($links as $link) {
+			if(strstr($link, $tag)){
+				$link = str_replace($main_link, '', $link);
+				$permitted[] = $link;
+			}
+		}
+		$permitted = array_unique($permitted);
+		print_r($permitted);
+	}
+
 	function RemoveHog($ps,$key){
 		$data = data();
 		if ($data[$key]['banned']) {
